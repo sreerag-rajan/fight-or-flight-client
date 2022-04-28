@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import {Input, FormControl,FormLabel,} from "@chakra-ui/react"
 
 
 class AddAirport extends React.Component{
@@ -41,13 +42,13 @@ class AddAirport extends React.Component{
         return(<div>
             <h1>Add Airport</h1>
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input onChange={this.handleChange} value={this.state.formData.code} type="text" name="" id="code" placeholder="Airport Code" />
-                    <input onChange={this.handleChange} value={this.state.formData.name} type="text" name="" id="name" placeholder="Airport Name" />
-                    <input onChange={this.handleChange} value={this.state.formData.city} type="text" name="" id="city" placeholder="City"/>
-                    <input onChange={this.handleChange} value={this.state.formData.state} type="text" name="" id="state" placeholder="State"/>
-                    <input type="submit" value="Submit" />
-                </form>
+                <FormControl width={"50%"} margin="auto" marginTop={"30px"}  display={"flex"} flexDirection="column" gap={"10px"} onSubmit={this.handleSubmit}>
+                    <Input sx={{boxShadow:" rgba(0, 0, 0, 0.24) 0px 3px 8px"}} onChange={this.handleChange} value={this.state.formData.code} type="text" name="" id="code" placeholder="Airport Code" />
+                    <Input sx={{boxShadow:" rgba(0, 0, 0, 0.24) 0px 3px 8px"}} onChange={this.handleChange} value={this.state.formData.name} type="text" name="" id="name" placeholder="Airport Name" />
+                    <Input sx={{boxShadow:" rgba(0, 0, 0, 0.24) 0px 3px 8px"}} onChange={this.handleChange} value={this.state.formData.city} type="text" name="" id="city" placeholder="City"/>
+                    <Input sx={{boxShadow:" rgba(0, 0, 0, 0.24) 0px 3px 8px"}} onChange={this.handleChange} value={this.state.formData.state} type="text" name="" id="state" placeholder="State"/>
+                    <Input sx={{boxShadow:" rgba(0, 0, 0, 0.24) 0px 3px 8px"}}  type="submit" value="Submit" />
+                </FormControl>
             </div>
         </div>)
     }
