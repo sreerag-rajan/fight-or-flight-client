@@ -14,7 +14,7 @@ export const Register = ()=>{
         lastName:"",
         email:"",
         password:"",
-        role:isCustomer?"Customer":"Admin",
+        role:"",
         company:"",
         employeeId:""
     })
@@ -27,6 +27,15 @@ export const Register = ()=>{
     }
     const handleSubmit = (e)=>{
         e.preventDefault()
+        if(isCustomer){
+            formData.role="Customer",
+            formData.company=null;
+            formData.employeeId=null
+        }
+        else{
+            formData.role="Admin"
+        }
+        
         axios.post("http://localhost:8080/auth/register",formData).then(({data})=>{
             console.log(data);
             toast({
