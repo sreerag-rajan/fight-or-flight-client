@@ -4,6 +4,9 @@ import { TableContainer, FormControl, FormLabel, FormErrorMessage, FormHelperTex
     AlertDescription, } from "@chakra-ui/react"
 import axios from "axios";
 import { useState } from "react";
+import { useToast } from '@chakra-ui/react'
+
+
 export const Register = ()=>{
     const [isCustomer, setIsCustomer] = useState(true);
     const [formData, setFormData] = useState({
@@ -15,6 +18,7 @@ export const Register = ()=>{
         company:"",
         employeeId:""
     })
+    const toast = useToast()
 
     const handleChange =(e)=>{
         const {name, value} = e.target;
@@ -25,6 +29,13 @@ export const Register = ()=>{
         e.preventDefault()
         axios.post("http://localhost:8080/auth/register",formData).then(({data})=>{
             console.log(data);
+            toast({
+                title: 'Account created.',
+                description: "We've created your account for you.",
+                status: 'success',
+                duration: 9000,
+                isClosable: true,
+              })
             setFormData({
                 firstName:"",
                 lastName:"",
