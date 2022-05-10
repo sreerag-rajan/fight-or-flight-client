@@ -52,33 +52,33 @@ export const Home = ()=>{
                 <Button onClick={handleSearch}>Search</Button>
                 </Flex>
             </div>
-            <TableContainer>
-            <Table variant={"striped"}>
+            <TableContainer width={"98%"} margin="auto">
+            <Table maxWidth={"80%"} variant={"striped"}>
                 <Thead>
                     <Tr>
                         <Th>Airline</Th>
                         <Th>From</Th>
                         <Th>To</Th>
-                        <Th>Start Date</Th>
                         <Th>Start Time</Th>
-                        <Th>End Date</Th>
                         <Th>End Time</Th>
                         <Th>Cost</Th>
                         <Th>Capacity</Th>
+                        <Th>View</Th>
+                        <Th>Book</Th>
                     </Tr>
                 </Thead>
                 <Tbody>
                 {flights?.map((el,i)=>{
                     return <Tr key={el._id}>
-                        <Td>{el.flightCompany}-{el.flightNumber}</Td>
+                        <Td>{el.flightCompany} <br/> {el.flightNumber}</Td>
                         <Td>{el.startAirport.name}</Td>
                         <Td>{el.endAirport.name}</Td>
-                        <Td>{new Date(el.startTime).toLocaleDateString()}</Td>
-                        <Td> {new Date(el.startTime).toLocaleTimeString()}</Td>
-                        <Td>{new Date(el.endTime).toLocaleDateString()}</Td>
-                        <Td>{new Date(el.endTime).toLocaleTimeString()}</Td>
+                        <Td>{new Date(el.startTime).toLocaleDateString()}<br/> {new Date(el.startTime).toLocaleTimeString()}</Td>
+                        <Td>{new Date(el.endTime).toLocaleDateString()} <br/>{new Date(el.endTime).toLocaleTimeString()}</Td>
                         <Td isNumeric>{el.cost}</Td>
                         <Td>{el.capacity} kgs</Td>
+                        <Td><Button backgroundColor={"LightBlue"}>View</Button></Td>
+                        <Td><Button backgroundColor="lightgreen">Book</Button></Td>
                     </Tr>
                 })}
 
